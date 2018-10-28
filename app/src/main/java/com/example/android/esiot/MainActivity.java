@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        //initialising
         startBt=(Button)findViewById(R.id.start_bt);
         stopBt=(Button)findViewById(R.id.stop_bt);
         listOfBtDevice=(ListView) findViewById(R.id.showing_list);
@@ -38,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
         bluetoothOnMethod();
         bluetoothOFFMethod();
     }
-
+    
+    //disables BT
     private void bluetoothOFFMethod() {
         stopBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    
+    //enables BT
     private void bluetoothOnMethod() {
         startBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //checks if BT enables or not and if enables then list all the connected devices 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode==requestCodeForEnable){
